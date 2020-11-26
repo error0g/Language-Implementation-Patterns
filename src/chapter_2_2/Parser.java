@@ -1,3 +1,4 @@
+package chapter_2_2;
 public class Parser {
 
     String[] input;
@@ -10,12 +11,12 @@ public class Parser {
 
 
     public static void main(String[] args) {
-        String[] LexerOut1=new String[]{"return","x","+","1",";"};
-        Parser parser1=new Parser(LexerOut1);
+        String[] token1=new String[]{"return","x","+","1",";"};
+        Parser parser1=new Parser(token1);
         parser1.stat();
 
-        String[] LexerOut2=new String[]{"add","x","+","1",";"};
-        Parser parser2=new Parser(LexerOut2);
+        String[] token2=new String[]{"add","x","+","1",";"};
+        Parser parser2=new Parser(token2);
         parser2.stat();
     }
 
@@ -31,14 +32,14 @@ public class Parser {
     {
         match("x"); match("+"); match("1");
     }
-    void match(String world)
+    void match(String token)
     {
-        if(world.equals(input[index]))
+        if(token.equals(input[index]))
         {
             consume();
         }
         else {
-            throw new Error("Match failed! "+input[index]+"-->"+world);
+            throw new Error("Match failed! "+input[index]+"-->"+token);
         }
     }
 
