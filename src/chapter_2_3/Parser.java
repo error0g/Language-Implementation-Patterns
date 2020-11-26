@@ -11,11 +11,12 @@ public class Parser {
 
 
     public static void main(String[] args) {
-        String[] LexerOut1=new String[]{"return","x","+","1",";"};
+        //success
+        String[] LexerOut1=new String[]{"if","x","<","0","then","x","=","0",";"};
         Parser parser1=new Parser(LexerOut1);
         parser1.stat();
-
-        String[] LexerOut2=new String[]{"add","x","+","1",";"};
+        //failed
+        String[] LexerOut2=new String[]{"return","x","+","0","1"};
         Parser parser2=new Parser(LexerOut2);
         parser2.stat();
     }
@@ -25,23 +26,45 @@ public class Parser {
             ifstat();
         else if(LA().equals("return"))
             returnstat();
-
+        else if(LA().equals("x"))
+        {
+            assign();
+        }
+        else throw new Error();
     }
     void returnstat()
     {
         match("return");expr();match(";");
     }
-    public void ifstat()
+     void ifstat()
     {
         match("if");expr();match("then");stat();
     }
+
     void assign()
     {
-
+        match("x"); match("=");expr();
     }
+
     void expr()
     {
-        match("x"); match("+"); match("1");
+        if(LA().equals("x"))
+        {
+            match("x");
+
+            if(LA().equals("+"))
+            {
+                match("+");
+
+            }
+            else if(LA().equals("<"))
+            {
+                match("<");
+            }
+        }
+
+        match("0");
+
     }
 
     void match(String token)
@@ -51,7 +74,7 @@ public class Parser {
             consume();
         }
         else {
-            throw new Error("Match failed! "+input[index]+"-->"+token);
+            throw new Error("expecting: "+token+" found: "+input[index]);
         }
     }
 
@@ -62,6 +85,7 @@ public class Parser {
             index++;
         }
     }
+    //Look forward
     String LA()
     {
         return input[index];

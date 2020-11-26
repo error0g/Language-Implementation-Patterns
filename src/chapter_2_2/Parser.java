@@ -11,10 +11,12 @@ public class Parser {
 
 
     public static void main(String[] args) {
+        //success
         String[] token1=new String[]{"return","x","+","1",";"};
         Parser parser1=new Parser(token1);
         parser1.stat();
 
+        //failed
         String[] token2=new String[]{"add","x","+","1",";"};
         Parser parser2=new Parser(token2);
         parser2.stat();
@@ -39,7 +41,7 @@ public class Parser {
             consume();
         }
         else {
-            throw new Error("Match failed! "+input[index]+"-->"+token);
+            throw new Error("expecting: "+token+" found: "+input[index]);
         }
     }
 
