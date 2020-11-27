@@ -21,8 +21,16 @@ public class ListLexer  extends Lexer{
             switch (c)
             {
                 case ' ': case '\t': case '\n': case '\r':WS();continue;
-                
-                default:
+                case ',':consume();return new Token(COMMA,",");
+                case '[':consume();return new Token(LBRACK,"[");
+                case ']':consume();return new Token(RBRACK,"]");
+                default:{
+                    if(isLETTER())
+                    {
+                        return NAME();
+                    }
+                    throw new Error("invalid character: "+c);
+                }
             }
         }
         return new Token(EOF_TYPE,"<EOF>");
@@ -33,12 +41,25 @@ public class ListLexer  extends Lexer{
         return tokenNames[tokenType];
     }
 
+    public Token NAME()
+    {
 
+        StringBuffer stringBuffer=new StringBuffer();
+        do{
+            stringBuffer.append(c);
+            consume();
+        }while (isLETTER());
+        return new Token(NAME,stringBuffer.toString());
+    }
     public void WS()
     {
         while (c==' '||c=='\t'||c=='\n'||c=='\r')
         {
             consume();
         }
+    }
+    boolean isLETTER()
+    {
+        return c>='a'&&c<='z'||c>='A'&&c<='Z';
     }
 }
