@@ -1,16 +1,19 @@
 package ChapterTwo.chapter_2_3;
-public class Parser {
+public class Parser
+{
 
     String[] input;
     int index;
 
-    public Parser(String[] input) {
+    public Parser(String[] input)
+    {
         this.input = input;
         index=0;
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         //success
         String[] LexerOut1=new String[]{"if","x","<","0","then","x","=","0",";"};
         Parser parser1=new Parser(LexerOut1);

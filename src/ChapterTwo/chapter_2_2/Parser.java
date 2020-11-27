@@ -10,7 +10,8 @@ public class Parser {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         //success
         String[] token1=new String[]{"return","x","+","1",";"};
         Parser parser1=new Parser(token1);
