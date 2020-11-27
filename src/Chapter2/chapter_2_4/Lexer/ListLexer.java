@@ -1,15 +1,14 @@
-package ChapterTwo.chapter_2_4_cache.Lexer;
+package Chapter2.chapter_2_4.Lexer;
 
-import ChapterTwo.chapter_2_4_cache.Token;
+import Chapter2.chapter_2_4.Token;
 
-public class ListLexer  extends Lexer {
+public class ListLexer  extends Lexer{
     public static int NAME=2;
     public static int COMMA=3;
     public static int LBRACK=4;
     public static int RBRACK=5;
-    public static int EQUALS=6;
 
-    public static String[] tokenNames={"n/a","<EOF>","NAME","COMMA","LBRACK","RBRACK","EQUALS"};
+    public static String[] tokenNames={"n/a","<EOF>","NAME","COMMA","LBRACK","RBRACK"};
 
     public ListLexer(String input) {
         super(input);
@@ -25,7 +24,6 @@ public class ListLexer  extends Lexer {
                 case ',':consume();return new Token(COMMA,",");
                 case '[':consume();return new Token(LBRACK,"[");
                 case ']':consume();return new Token(RBRACK,"]");
-                case '=':consume();return new Token(EQUALS,"=");
                 default:{
                     if(isLETTER())
                     {

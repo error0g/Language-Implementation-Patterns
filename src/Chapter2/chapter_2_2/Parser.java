@@ -1,4 +1,4 @@
-package ChapterTwo.chapter_2_2;
+package Chapter2.chapter_2_2;
 public class Parser {
 
     String[] input;

@@ -1,8 +1,8 @@
-package ChapterTwo.chapter_2_4_cache.Parser;
+package Chapter2.chapter_2_4_cache.Parser;
 
 
-import ChapterTwo.chapter_2_4_cache.Lexer.Lexer;
-import ChapterTwo.chapter_2_4_cache.Lexer.ListLexer;
+import Chapter2.chapter_2_4_cache.Lexer.Lexer;
+import Chapter2.chapter_2_4_cache.Lexer.ListLexer;
 
 
 public class ListParse extends Parse {

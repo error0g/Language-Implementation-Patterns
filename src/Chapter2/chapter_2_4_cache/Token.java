@@ -1,6 +1,6 @@
-package ChapterTwo.chapter_2_4_cache;
+package Chapter2.chapter_2_4_cache;
 
-import ChapterTwo.chapter_2_4_cache.Lexer.ListLexer;
+import Chapter2.chapter_2_4_cache.Lexer.ListLexer;
 
 public class Token {
    public int type;

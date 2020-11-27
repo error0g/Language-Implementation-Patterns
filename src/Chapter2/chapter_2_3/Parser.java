@@ -1,4 +1,4 @@
-package ChapterTwo.chapter_2_3;
+package Chapter2.chapter_2_3;
 public class Parser
 {
 

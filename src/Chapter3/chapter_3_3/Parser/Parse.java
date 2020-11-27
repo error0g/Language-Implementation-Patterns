@@ -1,16 +1,16 @@
-package ChapterTwo.chapter_2_4_cache.Parser;
+package Chapter3.chapter_3_3.Parser;
 
-import ChapterTwo.chapter_2_4_cache.Lexer.Lexer;
-import ChapterTwo.chapter_2_4_cache.Token;
+import Chapter3.chapter_3_3.Lexer.Lexer;
+import Chapter3.chapter_3_3.Token;
 
 public  class Parse {
     Lexer input;
-    Token []lookahead;
+    Token[]lookahead;
     int k;
     int p=0;
 
 
-    public Parse(Lexer input,int k) {
+    public Parse(Lexer input, int k) {
         this.input = input;
         this.k=k;
         lookahead=new Token[k];

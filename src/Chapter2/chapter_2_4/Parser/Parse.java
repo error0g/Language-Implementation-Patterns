@@ -1,7 +1,7 @@
-package ChapterTwo.chapter_2_4.Parser;
+package Chapter2.chapter_2_4.Parser;
 
-import ChapterTwo.chapter_2_4.Lexer.Lexer;
-import ChapterTwo.chapter_2_4.Token;
+import Chapter2.chapter_2_4.Lexer.Lexer;
+import Chapter2.chapter_2_4.Token;
 
 public  class Parse {
     Lexer input;

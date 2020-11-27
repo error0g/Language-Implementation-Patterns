@@ -1,6 +1,6 @@
-package ChapterTwo.chapter_2_4.Lexer;
+package Chapter2.chapter_2_4_cache.Lexer;
 
-import ChapterTwo.chapter_2_4.Token;
+import Chapter2.chapter_2_4_cache.Token;
 
 public abstract class Lexer
 {

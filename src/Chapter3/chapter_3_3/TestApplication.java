@@ -1,8 +1,7 @@
-package ChapterTwo.chapter_2_4_cache;
+package Chapter3.chapter_3_3;
 
-import ChapterTwo.chapter_2_4_cache.Lexer.Lexer;
-import ChapterTwo.chapter_2_4_cache.Lexer.ListLexer;
-import ChapterTwo.chapter_2_4_cache.Parser.ListParse;
+import Chapter3.chapter_3_3.Lexer.ListLexer;
+import Chapter3.chapter_3_3.Parser.ListParse;
 import org.junit.Test;
 
 public class TestApplication {
