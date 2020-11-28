@@ -10,9 +10,9 @@ public class TestApplication {
     @Test
     public void ParserTest()
     {
-        ListLexer lexer=new ListLexer("[a,b=c,[d,e]]");
+        ListLexer lexer=new ListLexer("[a,b]=[c,d]");
         ListParse parse=new ListParse(lexer,2);
-        parse.list();
+        parse.stat();
 
     }
 }
