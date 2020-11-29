@@ -15,6 +15,8 @@ public class ListParse extends Parse {
     }
 
 
+
+
     public void stat()
     {
         if(speculate_stat_alt1())
@@ -65,7 +67,10 @@ public class ListParse extends Parse {
     }
 
     Map<Integer,Integer> list_memo=new HashMap();
-
+    @Override
+    void cleanMemo() {
+        list_memo.clear();
+    }
     void list()
     {
         boolean faile=false;
@@ -94,7 +99,7 @@ public class ListParse extends Parse {
         if(MemoI==null)return false;
         int memo=MemoI.intValue();
         if(memo==FAILED) throw  new Error("previous Parse Failed Exception");
-        
+
         seek(memo);
         return true;
     }

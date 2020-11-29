@@ -6,7 +6,7 @@ import Chapter3.chapter_3_3_memory.Token;
 import java.util.ArrayList;
 import java.util.List;
 
-public  class Parse {
+public  abstract class Parse {
     Lexer input;
     List<Token> lookahead;
     List<Integer> markers;
@@ -36,6 +36,7 @@ public  class Parse {
         {
             p=0;
             lookahead.clear();
+            cleanMemo();
         }
         sync(1);
     }
@@ -82,6 +83,7 @@ public  class Parse {
     public void seek(int index) {
         p=index;
     }
+    abstract void cleanMemo();
 
     public boolean isSpeculating() {
         return markers.size()>0;
