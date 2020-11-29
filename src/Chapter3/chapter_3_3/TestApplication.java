@@ -11,7 +11,7 @@ public class TestApplication {
     public void ParserTest()
     {
         ListLexer lexer=new ListLexer("[a,b]=[c,d]");
-        ListParse parse=new ListParse(lexer,2);
+        ListParse parse=new ListParse(lexer);
         parse.stat();
 
     }

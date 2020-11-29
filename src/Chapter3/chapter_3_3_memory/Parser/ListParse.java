@@ -1,8 +1,11 @@
-package Chapter3.chapter_3_3.Parser;
+package Chapter3.chapter_3_3_memory.Parser;
 
 
-import Chapter3.chapter_3_3.Lexer.Lexer;
-import Chapter3.chapter_3_3.Lexer.ListLexer;
+import Chapter3.chapter_3_3_memory.Lexer.Lexer;
+import Chapter3.chapter_3_3_memory.Lexer.ListLexer;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class ListParse extends Parse {
@@ -22,8 +25,9 @@ public class ListParse extends Parse {
         {
             assign();match(Lexer.EOF_TYPE);
         }
-        else throw  new Error("expecting stat found "+LA(1));
+        else throw  new Error("expecting stat found "+LT(1));
     }
+
     public boolean speculate_stat_alt1()
     {
         boolean success=true;
@@ -60,10 +64,52 @@ public class ListParse extends Parse {
         list();match(ListLexer.EQUALS);list();
     }
 
-    public void list()
+    Map<Integer,Integer> list_memo=new HashMap();
+
+    void list()
     {
+        boolean faile=false;
+        int startTokenIndex=index();
+        if(isSpeculating()&&alreadyParsedRuel(list_memo))return;
+
+        try{
+            _list();
+        }catch (Error error)
+        {
+            faile=true;
+            throw  error;
+        }
+        finally {
+            memoize(list_memo,startTokenIndex,faile);
+        }
+    }
+
+    private void memoize(Map<Integer, Integer> list_memo, int startTokenIndex, boolean faile) {
+        int stopTokenIndex=faile?FAILED:index();
+        list_memo.put(startTokenIndex,stopTokenIndex);
+    }
+
+    private boolean alreadyParsedRuel(Map<Integer, Integer> list_memo) {
+        Integer MemoI=list_memo.get(index());
+        if(MemoI==null)return false;
+        int memo=MemoI.intValue();
+        if(memo==FAILED) throw  new Error("previous Parse Failed Exception");
+        
+        seek(memo);
+        return true;
+    }
+
+    private int index() {
+        return p;
+    }
+
+    public void _list()
+    {
+        System.out.println("parse list rule at token index:"+index());
         match(ListLexer.LBRACK);elements();match(ListLexer.RBRACK);
     }
+
+
 
     public  void elements() {
         element();

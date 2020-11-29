@@ -1,7 +1,7 @@
-package Chapter3.chapter_3_3.Parser;
+package Chapter3.chapter_3_3_memory.Parser;
 
-import Chapter3.chapter_3_3.Lexer.Lexer;
-import Chapter3.chapter_3_3.Token;
+import Chapter3.chapter_3_3_memory.Lexer.Lexer;
+import Chapter3.chapter_3_3_memory.Token;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ public  class Parse {
     Lexer input;
     List<Token> lookahead;
     List<Integer> markers;
+    static final int FAILED=-1;
     int p=0;
 
 
@@ -78,11 +79,11 @@ public  class Parse {
         seek(marker);
     }
 
-    private void seek(int index) {
+    public void seek(int index) {
         p=index;
     }
 
-    private boolean isSpeculating() {
+    public boolean isSpeculating() {
         return markers.size()>0;
     }
 }
