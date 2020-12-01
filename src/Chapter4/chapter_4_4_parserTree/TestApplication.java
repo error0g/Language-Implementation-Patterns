@@ -12,8 +12,10 @@ public class TestApplication {
     @Test
     public void ParserTest()
     {
-        ListLexer lexer=new ListLexer("[a]=[b]");
+        ListLexer lexer=new ListLexer("[a]");
         ListParse parse=new ListParse(lexer);
         parse.stat();
+        ParserTree parserTree=parse.getRoot();
+        System.out.println(parserTree.children);
     }
 }

@@ -56,6 +56,10 @@ public class ListParse extends Parse {
 
     public boolean speculate_stat_alt2()
     {
+        // 删除掉规则1 推演时添加的节点
+        root=null;
+        currentNode=null;
+
         boolean success=true;
         mark();
         try {
