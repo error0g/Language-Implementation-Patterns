@@ -1,4 +1,4 @@
-// Generated from E:/Language-Implementation-Patterns/src/Chapter4/chapter_4_4/Resources\VecMath.g4 by ANTLR 4.8
+// Generated from /Users/error0/Language-Implementation-Patterns/src/Chapter4/chapter_4_4/Resources/VecMath.g4 by ANTLR 4.8
 package Chapter4.chapter_4_4;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -18,7 +18,7 @@ public class VecMathParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, WS=9, 
-		INT=10, ID=11;
+		INT=10, ID=11, VES=12;
 	public static final int
 		RULE_statlist = 0, RULE_stat = 1, RULE_expr = 2, RULE_multExpr = 3, RULE_primary = 4;
 	private static String[] makeRuleNames() {
@@ -36,7 +36,8 @@ public class VecMathParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, null, null, "WS", "INT", "ID"
+			null, null, null, null, null, null, null, null, null, "WS", "INT", "ID", 
+			"VES"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -136,7 +137,7 @@ public class VecMathParser extends Parser {
 				setState(13); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==T__1 || _la==ID );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << WS) | (1L << ID))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -155,6 +156,7 @@ public class VecMathParser extends Parser {
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
 		}
+		public TerminalNode WS() { return getToken(VecMathParser.WS, 0); }
 		public StatContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -178,7 +180,7 @@ public class VecMathParser extends Parser {
 		StatContext _localctx = new StatContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_stat);
 		try {
-			setState(20);
+			setState(21);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case ID:
@@ -199,6 +201,13 @@ public class VecMathParser extends Parser {
 				match(T__1);
 				setState(19);
 				expr();
+				}
+				break;
+			case WS:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(20);
+				match(WS);
 				}
 				break;
 			default:
@@ -249,21 +258,21 @@ public class VecMathParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(22);
+			setState(23);
 			multExpr();
-			setState(27);
+			setState(28);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__2) {
 				{
 				{
-				setState(23);
-				match(T__2);
 				setState(24);
+				match(T__2);
+				setState(25);
 				multExpr();
 				}
 				}
-				setState(29);
+				setState(30);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -313,15 +322,15 @@ public class VecMathParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(30);
+			setState(31);
 			primary();
-			setState(35);
+			setState(36);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__3 || _la==T__4) {
 				{
 				{
-				setState(31);
+				setState(32);
 				_la = _input.LA(1);
 				if ( !(_la==T__3 || _la==T__4) ) {
 				_errHandler.recoverInline(this);
@@ -331,11 +340,11 @@ public class VecMathParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(32);
+				setState(33);
 				primary();
 				}
 				}
-				setState(37);
+				setState(38);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -385,47 +394,47 @@ public class VecMathParser extends Parser {
 		enterRule(_localctx, 8, RULE_primary);
 		int _la;
 		try {
-			setState(51);
+			setState(52);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(38);
+				setState(39);
 				match(INT);
 				}
 				break;
 			case ID:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(39);
+				setState(40);
 				match(ID);
 				}
 				break;
 			case T__5:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(40);
-				match(T__5);
 				setState(41);
+				match(T__5);
+				setState(42);
 				expr();
-				setState(46);
+				setState(47);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__6) {
 					{
 					{
-					setState(42);
-					match(T__6);
 					setState(43);
+					match(T__6);
+					setState(44);
 					expr();
 					}
 					}
-					setState(48);
+					setState(49);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(49);
+				setState(50);
 				match(T__7);
 				}
 				break;
@@ -445,21 +454,22 @@ public class VecMathParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r8\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\169\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\6\2\16\n\2\r\2\16\2\17\3\3\3\3\3\3\3\3"+
-		"\3\3\5\3\27\n\3\3\4\3\4\3\4\7\4\34\n\4\f\4\16\4\37\13\4\3\5\3\5\3\5\7"+
-		"\5$\n\5\f\5\16\5\'\13\5\3\6\3\6\3\6\3\6\3\6\3\6\7\6/\n\6\f\6\16\6\62\13"+
-		"\6\3\6\3\6\5\6\66\n\6\3\6\2\2\7\2\4\6\b\n\2\3\3\2\6\7\29\2\r\3\2\2\2\4"+
-		"\26\3\2\2\2\6\30\3\2\2\2\b \3\2\2\2\n\65\3\2\2\2\f\16\5\4\3\2\r\f\3\2"+
-		"\2\2\16\17\3\2\2\2\17\r\3\2\2\2\17\20\3\2\2\2\20\3\3\2\2\2\21\22\7\r\2"+
-		"\2\22\23\7\3\2\2\23\27\5\6\4\2\24\25\7\4\2\2\25\27\5\6\4\2\26\21\3\2\2"+
-		"\2\26\24\3\2\2\2\27\5\3\2\2\2\30\35\5\b\5\2\31\32\7\5\2\2\32\34\5\b\5"+
-		"\2\33\31\3\2\2\2\34\37\3\2\2\2\35\33\3\2\2\2\35\36\3\2\2\2\36\7\3\2\2"+
-		"\2\37\35\3\2\2\2 %\5\n\6\2!\"\t\2\2\2\"$\5\n\6\2#!\3\2\2\2$\'\3\2\2\2"+
-		"%#\3\2\2\2%&\3\2\2\2&\t\3\2\2\2\'%\3\2\2\2(\66\7\f\2\2)\66\7\r\2\2*+\7"+
-		"\b\2\2+\60\5\6\4\2,-\7\t\2\2-/\5\6\4\2.,\3\2\2\2/\62\3\2\2\2\60.\3\2\2"+
-		"\2\60\61\3\2\2\2\61\63\3\2\2\2\62\60\3\2\2\2\63\64\7\n\2\2\64\66\3\2\2"+
-		"\2\65(\3\2\2\2\65)\3\2\2\2\65*\3\2\2\2\66\13\3\2\2\2\b\17\26\35%\60\65";
+		"\3\3\3\3\5\3\30\n\3\3\4\3\4\3\4\7\4\35\n\4\f\4\16\4 \13\4\3\5\3\5\3\5"+
+		"\7\5%\n\5\f\5\16\5(\13\5\3\6\3\6\3\6\3\6\3\6\3\6\7\6\60\n\6\f\6\16\6\63"+
+		"\13\6\3\6\3\6\5\6\67\n\6\3\6\2\2\7\2\4\6\b\n\2\3\3\2\6\7\2;\2\r\3\2\2"+
+		"\2\4\27\3\2\2\2\6\31\3\2\2\2\b!\3\2\2\2\n\66\3\2\2\2\f\16\5\4\3\2\r\f"+
+		"\3\2\2\2\16\17\3\2\2\2\17\r\3\2\2\2\17\20\3\2\2\2\20\3\3\2\2\2\21\22\7"+
+		"\r\2\2\22\23\7\3\2\2\23\30\5\6\4\2\24\25\7\4\2\2\25\30\5\6\4\2\26\30\7"+
+		"\13\2\2\27\21\3\2\2\2\27\24\3\2\2\2\27\26\3\2\2\2\30\5\3\2\2\2\31\36\5"+
+		"\b\5\2\32\33\7\5\2\2\33\35\5\b\5\2\34\32\3\2\2\2\35 \3\2\2\2\36\34\3\2"+
+		"\2\2\36\37\3\2\2\2\37\7\3\2\2\2 \36\3\2\2\2!&\5\n\6\2\"#\t\2\2\2#%\5\n"+
+		"\6\2$\"\3\2\2\2%(\3\2\2\2&$\3\2\2\2&\'\3\2\2\2\'\t\3\2\2\2(&\3\2\2\2)"+
+		"\67\7\f\2\2*\67\7\r\2\2+,\7\b\2\2,\61\5\6\4\2-.\7\t\2\2.\60\5\6\4\2/-"+
+		"\3\2\2\2\60\63\3\2\2\2\61/\3\2\2\2\61\62\3\2\2\2\62\64\3\2\2\2\63\61\3"+
+		"\2\2\2\64\65\7\n\2\2\65\67\3\2\2\2\66)\3\2\2\2\66*\3\2\2\2\66+\3\2\2\2"+
+		"\67\13\3\2\2\2\b\17\27\36&\61\66";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

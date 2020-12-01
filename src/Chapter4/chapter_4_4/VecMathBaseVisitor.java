@@ -1,4 +1,4 @@
-// Generated from E:/Language-Implementation-Patterns/src/Chapter4/chapter_4_4/Resources\VecMath.g4 by ANTLR 4.8
+// Generated from /Users/error0/Language-Implementation-Patterns/src/Chapter4/chapter_4_4/Resources/VecMath.g4 by ANTLR 4.8
 package Chapter4.chapter_4_4;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 

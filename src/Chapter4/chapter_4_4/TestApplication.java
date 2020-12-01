@@ -13,7 +13,7 @@ public class TestApplication {
     @Test
     public void ParserTest()
     {
-        CharStream input = CharStreams.fromString("x=1+2 y=1*2+3 a=[1,2].[3,4] print x");
+        CharStream input = CharStreams.fromString("print x x=1+2 y=1*2+3 a=[1,2].[3,4] ");
         VecMathLexer lexer=new VecMathLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         VecMathParser parser=new VecMathParser(tokens);
