@@ -44,11 +44,9 @@ public class AST {
 
         for(int i=0;i<children.size();i++)
         {
-            stringBuffer.append(children.get(i).toString());
-            if(i<children.size()-1)
-            {
-                stringBuffer.append(" ");
-            }
+          AST t=children.get(i);
+          if(i>0)stringBuffer.append(" ");
+          stringBuffer.append(t.toStringTree());
         }
 
         if(!isNil())
