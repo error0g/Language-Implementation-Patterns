@@ -1,7 +1,7 @@
-package Chapter4.chapter_4_4_AST;
+package Chapter4.chapter_4_4_Normalized;
 
 
-public class Token  extends AST{
+public class Token  extends AST {
     public static final int INT=1;
     public static final int PLUS=2;
     public int type;
